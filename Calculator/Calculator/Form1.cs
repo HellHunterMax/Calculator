@@ -18,16 +18,17 @@ namespace Calculator
         }
 
         string operation = "";
-        double firstNum, secondNum;
+        double? firstNum, secondNum;
 
         private void btnCClick(object sender, EventArgs e)
         {
             lblDisplay.Text = "";
+            firstNum = null;
         }
 
         private void btnCEClick(object sender, EventArgs e)
         {
-            lblDisplay.Text = "";
+            lblDisplay.Text = "";/*
 
             string f, s;
 
@@ -36,20 +37,64 @@ namespace Calculator
 
             f = "";
             s = "";
-
+            */
         }
 
         private void OperationClick(object sender, EventArgs e)
         {
-            Button b = (Button)sender;
-            firstNum = Double.Parse(lblDisplay.Text);
-            operation = b.Text;
-            lblDisplay.Text = "";
+            if (lblDisplay.Text == "Cannot Divide by zero")
+                lblDisplay.Text = "";
+            if (lblDisplay.Text == "")
+            {
+
+            }
+            else if (firstNum == null)
+            {
+                Button b = (Button)sender;
+                firstNum = Double.Parse(lblDisplay.Text);
+                operation = b.Text;
+                lblDisplay.Text = "";
+            }
+            else
+            {
+                secondNum = Double.Parse(lblDisplay.Text);
+                switch (operation)
+                {
+                    case "+":
+                        lblDisplay.Text = Convert.ToString(firstNum + secondNum);
+                        break;
+                    case "-":
+                        lblDisplay.Text = Convert.ToString(firstNum - secondNum);
+                        break;
+                    case "X":
+                        lblDisplay.Text = Convert.ToString(firstNum * secondNum);
+                        break;
+                    case "/":
+                        {
+                            if (secondNum == 0)
+                            {
+                                lblDisplay.Text = "Cannot Divide by zero";
+                            }
+                            else
+                            {
+                                lblDisplay.Text = Convert.ToString(firstNum / secondNum);
+                            }
+                        }
+                        break;
+                    default:
+                        break;
+
+                }
+                firstNum = null;
+                secondNum = null;
+            }
         }
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            if(lblDisplay.Text.Length > 0)
+            if (lblDisplay.Text == "Cannot Divide by zero")
+                lblDisplay.Text = "";
+            if (lblDisplay.Text.Length > 0)
             {
                 lblDisplay.Text = lblDisplay.Text.Remove(lblDisplay.Text.Length - 1, 1);
             }
@@ -57,7 +102,9 @@ namespace Calculator
 
         private void btnPlusMinus_Click(object sender, EventArgs e)
         {
-            if(lblDisplay.Text.Contains('-'))
+            if (lblDisplay.Text == "Cannot Divide by zero")
+                lblDisplay.Text = "";
+            if (lblDisplay.Text.Contains('-'))
             {
                 lblDisplay.Text = lblDisplay.Text.Remove(0, 1);
             }
@@ -69,35 +116,58 @@ namespace Calculator
 
         private void btnEquals_Click(object sender, EventArgs e)
         {
-            secondNum = Double.Parse(lblDisplay.Text);
-            switch (operation)
+            if (lblDisplay.Text == "Cannot Divide by zero")
+                lblDisplay.Text = "";
+            if (lblDisplay.Text == "")
             {
-                case "+":
-                    lblDisplay.Text = Convert.ToString(firstNum + secondNum);
-                    break;
-                case "-":
-                    lblDisplay.Text = Convert.ToString(firstNum - secondNum);
-                    break;
-                case "*":
-                    lblDisplay.Text = Convert.ToString(firstNum * secondNum);
-                    break;
-                case "/":
-                    lblDisplay.Text = Convert.ToString(firstNum / secondNum);
-                    break;
-                default:
-                    break;
 
             }
+            else
+            {
+                secondNum = Double.Parse(lblDisplay.Text);
+                switch (operation)
+                {
+                    case "+":
+                        lblDisplay.Text = Convert.ToString(firstNum + secondNum);
+                        break;
+                    case "-":
+                        lblDisplay.Text = Convert.ToString(firstNum - secondNum);
+                        break;
+                    case "X":
+                        lblDisplay.Text = Convert.ToString(firstNum * secondNum);
+                        break;
+                    case "/":
+                        {
+                            if (secondNum == 0)
+                            {
+                                lblDisplay.Text = "Cannot Divide by zero";
+                            }
+                            else
+                            {
+                                lblDisplay.Text = Convert.ToString(firstNum / secondNum);
+                            }
+                        }
+                        break;
+                    default:
+                        break;
+
+                }
+                firstNum = null;
+                secondNum = null;
+            }
+                
         }
 
         private void NumericValue(object sender, EventArgs e)
         {
             Button b = (Button)sender;
 
-            
-            if(b.Text== ".")
+            if (lblDisplay.Text == "Cannot Divide by zero")
+                lblDisplay.Text = "";
+
+            if(b.Text== ",")
             {
-                if(!lblDisplay.Text.Contains('.'))
+                if(!lblDisplay.Text.Contains(','))
                 {
                     lblDisplay.Text = lblDisplay.Text + b.Text;
                 }
