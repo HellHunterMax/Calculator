@@ -59,7 +59,7 @@
             this.btnCE.TabIndex = 0;
             this.btnCE.Text = "CE";
             this.btnCE.UseVisualStyleBackColor = true;
-            this.btnCE.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnCE.Click += new System.EventHandler(this.btnCEClick);
             // 
             // btnC
             // 
@@ -69,7 +69,7 @@
             this.btnC.TabIndex = 1;
             this.btnC.Text = "C";
             this.btnC.UseVisualStyleBackColor = true;
-            this.btnC.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnC.Click += new System.EventHandler(this.btnCClick);
             // 
             // btnDel
             // 
@@ -79,7 +79,7 @@
             this.btnDel.TabIndex = 2;
             this.btnDel.Text = "DEL";
             this.btnDel.UseVisualStyleBackColor = true;
-            this.btnDel.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnDivide
             // 
@@ -89,7 +89,7 @@
             this.btnDivide.TabIndex = 3;
             this.btnDivide.Text = "/";
             this.btnDivide.UseVisualStyleBackColor = true;
-            this.btnDivide.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnDivide.Click += new System.EventHandler(this.OperationClick);
             // 
             // btnSeven
             // 
@@ -99,7 +99,7 @@
             this.btnSeven.TabIndex = 4;
             this.btnSeven.Text = "7";
             this.btnSeven.UseVisualStyleBackColor = true;
-            this.btnSeven.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnSeven.Click += new System.EventHandler(this.NumericValue);
             // 
             // btnEight
             // 
@@ -109,7 +109,7 @@
             this.btnEight.TabIndex = 5;
             this.btnEight.Text = "8";
             this.btnEight.UseVisualStyleBackColor = true;
-            this.btnEight.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnEight.Click += new System.EventHandler(this.NumericValue);
             // 
             // btnNine
             // 
@@ -119,7 +119,7 @@
             this.btnNine.TabIndex = 6;
             this.btnNine.Text = "9";
             this.btnNine.UseVisualStyleBackColor = true;
-            this.btnNine.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnNine.Click += new System.EventHandler(this.NumericValue);
             // 
             // btnMultiply
             // 
@@ -129,7 +129,7 @@
             this.btnMultiply.TabIndex = 7;
             this.btnMultiply.Text = "X";
             this.btnMultiply.UseVisualStyleBackColor = true;
-            this.btnMultiply.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnMultiply.Click += new System.EventHandler(this.OperationClick);
             // 
             // btnFour
             // 
@@ -139,7 +139,7 @@
             this.btnFour.TabIndex = 8;
             this.btnFour.Text = "4";
             this.btnFour.UseVisualStyleBackColor = true;
-            this.btnFour.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnFour.Click += new System.EventHandler(this.NumericValue);
             // 
             // btnFive
             // 
@@ -149,7 +149,7 @@
             this.btnFive.TabIndex = 9;
             this.btnFive.Text = "5";
             this.btnFive.UseVisualStyleBackColor = true;
-            this.btnFive.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnFive.Click += new System.EventHandler(this.NumericValue);
             // 
             // btnSix
             // 
@@ -159,7 +159,7 @@
             this.btnSix.TabIndex = 10;
             this.btnSix.Text = "6";
             this.btnSix.UseVisualStyleBackColor = true;
-            this.btnSix.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnSix.Click += new System.EventHandler(this.NumericValue);
             // 
             // btnMinus
             // 
@@ -169,7 +169,7 @@
             this.btnMinus.TabIndex = 11;
             this.btnMinus.Text = "-";
             this.btnMinus.UseVisualStyleBackColor = true;
-            this.btnMinus.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnMinus.Click += new System.EventHandler(this.OperationClick);
             // 
             // lblDisplay
             // 
@@ -188,7 +188,7 @@
             this.btnOne.TabIndex = 13;
             this.btnOne.Text = "1";
             this.btnOne.UseVisualStyleBackColor = true;
-            this.btnOne.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnOne.Click += new System.EventHandler(this.NumericValue);
             // 
             // btnTwo
             // 
@@ -198,7 +198,7 @@
             this.btnTwo.TabIndex = 14;
             this.btnTwo.Text = "2";
             this.btnTwo.UseVisualStyleBackColor = true;
-            this.btnTwo.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnTwo.Click += new System.EventHandler(this.NumericValue);
             // 
             // btnThree
             // 
@@ -208,7 +208,7 @@
             this.btnThree.TabIndex = 15;
             this.btnThree.Text = "3";
             this.btnThree.UseVisualStyleBackColor = true;
-            this.btnThree.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnThree.Click += new System.EventHandler(this.NumericValue);
             // 
             // btnPlus
             // 
@@ -218,7 +218,7 @@
             this.btnPlus.TabIndex = 16;
             this.btnPlus.Text = "+";
             this.btnPlus.UseVisualStyleBackColor = true;
-            this.btnPlus.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnPlus.Click += new System.EventHandler(this.OperationClick);
             // 
             // btnPlusMinus
             // 
@@ -228,7 +228,7 @@
             this.btnPlusMinus.TabIndex = 17;
             this.btnPlusMinus.Text = "+/-";
             this.btnPlusMinus.UseVisualStyleBackColor = true;
-            this.btnPlusMinus.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnPlusMinus.Click += new System.EventHandler(this.btnPlusMinus_Click);
             // 
             // btnZero
             // 
@@ -238,7 +238,7 @@
             this.btnZero.TabIndex = 18;
             this.btnZero.Text = "0";
             this.btnZero.UseVisualStyleBackColor = true;
-            this.btnZero.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnZero.Click += new System.EventHandler(this.NumericValue);
             // 
             // btnDot
             // 
@@ -248,7 +248,7 @@
             this.btnDot.TabIndex = 19;
             this.btnDot.Text = ".";
             this.btnDot.UseVisualStyleBackColor = true;
-            this.btnDot.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnDot.Click += new System.EventHandler(this.NumericValue);
             // 
             // btnEquals
             // 
@@ -258,7 +258,7 @@
             this.btnEquals.TabIndex = 20;
             this.btnEquals.Text = "=";
             this.btnEquals.UseVisualStyleBackColor = true;
-            this.btnEquals.Click += new System.EventHandler(this.AllBtn_click);
+            this.btnEquals.Click += new System.EventHandler(this.btnEquals_Click);
             // 
             // Form1
             // 

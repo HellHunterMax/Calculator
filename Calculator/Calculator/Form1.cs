@@ -17,56 +17,100 @@ namespace Calculator
             InitializeComponent();
         }
 
-        public static string prevLquation = "", prevoperation = "", operation = "";
+        string operation = "";
+        double firstNum, secondNum;
 
-        private void AllBtn_click(object sender, EventArgs e)
+        private void btnCClick(object sender, EventArgs e)
         {
-            Button btn = sender as Button;
+            lblDisplay.Text = "";
+        }
 
-            switch(btn.Name)
+        private void btnCEClick(object sender, EventArgs e)
+        {
+            lblDisplay.Text = "";
+
+            string f, s;
+
+            f = Convert.ToString(firstNum);
+            s = Convert.ToString(secondNum);
+
+            f = "";
+            s = "";
+
+        }
+
+        private void OperationClick(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            firstNum = Double.Parse(lblDisplay.Text);
+            operation = b.Text;
+            lblDisplay.Text = "";
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            if(lblDisplay.Text.Length > 0)
             {
-                case "btnDel":
-                    if(lblDisplay.Text.Length > 0)
-                    {
-                        lblDisplay.Text = lblDisplay.Text.Substring(0, lblDisplay.Text.Length - 1);
-                    }
-                    break;
-                case "btnC":
-                    operation = "";
-                    lblDisplay.ResetText();
-                    break;
-                case "btnCE":
-                    lblDisplay.ResetText();
-                    break;
-                case "btnDot":
-                    if (!lblDisplay.Text.Contains('.'))
-                    {
-                        lblDisplay.Text += ".";
-                    }
-                    break;
-                case "btnPlusMinus":
-                    if (lblDisplay.Text.Length > 0)
-                    {
-                        if (!lblDisplay.Text.Contains('-'))
-                        {
-                            lblDisplay.Text = "-" + lblDisplay.Text;
-                        }
-                        else if (lblDisplay.Text.Contains('-'))
-                        {
-                            lblDisplay.Text = lblDisplay.Text.Substring(1, lblDisplay.Text.Length - 1);
-                        }
-                    }
-                    break;
-                default:
-                    if (operation == "=")
-                    {
-                        operation = "";
-                        lblDisplay.ResetText();
-                    }
-
-                    lblDisplay.Text += btn.Text;
-                    break;
+                lblDisplay.Text = lblDisplay.Text.Remove(lblDisplay.Text.Length - 1, 1);
             }
         }
+
+        private void btnPlusMinus_Click(object sender, EventArgs e)
+        {
+            if(lblDisplay.Text.Contains('-'))
+            {
+                lblDisplay.Text = lblDisplay.Text.Remove(0, 1);
+            }
+            else
+            {
+                lblDisplay.Text = "-" + lblDisplay.Text;
+            }
+        }
+
+        private void btnEquals_Click(object sender, EventArgs e)
+        {
+            secondNum = Double.Parse(lblDisplay.Text);
+            switch (operation)
+            {
+                case "+":
+                    lblDisplay.Text = Convert.ToString(firstNum + secondNum);
+                    break;
+                case "-":
+                    lblDisplay.Text = Convert.ToString(firstNum - secondNum);
+                    break;
+                case "*":
+                    lblDisplay.Text = Convert.ToString(firstNum * secondNum);
+                    break;
+                case "/":
+                    lblDisplay.Text = Convert.ToString(firstNum / secondNum);
+                    break;
+                default:
+                    break;
+
+            }
+        }
+
+        private void NumericValue(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+
+            
+            if(b.Text== ".")
+            {
+                if(!lblDisplay.Text.Contains('.'))
+                {
+                    lblDisplay.Text = lblDisplay.Text + b.Text;
+                }
+            }
+            else
+            {
+                lblDisplay.Text = lblDisplay.Text + b.Text;
+            }
+        }
+        
+        /*private void AllBtn_click(object sender, EventArgs e)
+        {
+
+        }*/
     }
 }
